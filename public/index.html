@@ -6,14 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zendesk API</title>
     <script async src="./src/index.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
-    <p id="endpoint">/search.json</p>
-    <p id="query1">query=type:ticket</p>
+    <div class="jumbotron">
+
+        <h1 class="display-3"><img src="img/wiw420.png" width="100px" />When I Zendesk</h1>
+    </div>
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="endpoint">Select API Endpoint</label>
+                <select id="endpoint" onchange="getValue(this)" class="form-control">
+                    <option value="test" id="ep1">None</option>
+                    <option value="/search.json">Search API</option>
+                </select>
+                <label for="query1">Select First Query</label>
+                <select id="query1" class="form-control">
+                    <option value="">None</option>
+                    <option value="query=type:ticket">Type: Ticket</option>
+                </select>
+                <label for="query2">Select Ticket Status</label>
+                <select id="query2" class="form-control">
+                    <option value="">None</option>
+                    <option value="status:solved">Solved</option>
+                    <option value="status:open">Open</option>
+                    <option value="status:pending">Pending</option>
+                </select>
+                <button type="button" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+        <p class="lead" id="result"></p>
+    </div>
+    <br>
+
+    <!-- <p id="endpoint2">/search.json</p>
+    <p id="query11">query=type:ticket</p>
     <p id="query2">status:solved</p>
-    <p id="result"></p>
-    <button>Button</button>
+    <p id="result"></p> -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
