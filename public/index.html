@@ -17,26 +17,35 @@
         <h1 class="display-3"><img src="img/wiw420.png" width="100px" />When I Zendesk</h1>
     </div>
     <div class="container">
+        <button id="selectAll">Select All</button>
         <form>
             <div class="form-group">
                 <label for="endpoint">Select API Endpoint</label>
-                <select id="endpoint" onchange="getValue(this)" class="form-control">
-                    <option value="test" id="ep1">None</option>
+                <select id="endpoint" onchange="getValue(this)" class="form-control" required="true">
+                    <option value="" id="ep1">None</option>
                     <option value="/search.json">Search API</option>
                 </select>
                 <label for="query1">Select First Query</label>
-                <select id="query1" class="form-control">
+                <select id="query1" class="form-control" required="true">
                     <option value="">None</option>
                     <option value="query=type:ticket">Type: Ticket</option>
+                    <option value="query=ticket_type:problem">Type: Problem</option>
                 </select>
                 <label for="query2">Select Ticket Status</label>
-                <select id="query2" class="form-control">
+                <select id="query2" class="form-control" required="true">
                     <option value="">None</option>
                     <option value="status:solved">Solved</option>
                     <option value="status:open">Open</option>
+                    <option value="status:new">New</option>
                     <option value="status:pending">Pending</option>
                 </select>
-                <button type="button" class="btn btn-primary">Submit</button>
+                <label for="resultFormat">Result Format</label>
+                <select id="resultFormat" class="form-control" required="true">
+                    <option value="ticketCount">Total Count</option>
+                    <option value="listTickets">List Tickets</option>
+                </select>
+                <button type="button" class="btn btn-primary" id="formSubmitGET">Submit (GET)</button>
+                <button type="button" class="btn btn-primary" id="formSubmitPOST">Submit (POST)</button>
             </div>
         </form>
         <p class="lead" id="result"></p>

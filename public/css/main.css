@@ -5,3 +5,16 @@
 .btn {
     margin-top:10px;
 }
+
+.main {
+    margin: auto;
+    width: 40%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container {
+
+}

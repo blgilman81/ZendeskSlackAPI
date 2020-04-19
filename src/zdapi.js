@@ -23,7 +23,7 @@ const sendNotification = async ticketCount => {
         });
 };
 
-const searchURL = async function(params) {
+const searchURL = async function(params, resultFormat) {
         try {
                 const response = await axios.get(params, {
                         baseURL: process.env.ZD_URL,
@@ -32,14 +32,18 @@ const searchURL = async function(params) {
                                 Authorization: `Basic ${process.env.ZD_API_KEY_SANDBOX}`,
                         },
                 });
+                // if (resultFormat === 'ticketCount') {
+                //         const tcount = response.data.count;
+                //         return tcount;
+                // }
                 const returnData = [];
                 response.data.results.forEach(element => {
                         returnData.push(element.id);
                 });
-                console.log(response.data.count);
+
                 return returnData;
         } catch (e) {
-                return console.log(e);
+                console.log('Error');
         }
 };
 
